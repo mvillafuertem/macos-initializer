@@ -1,0 +1,23 @@
+= MacOS Initializer
+:author: Miguel Villafuerte
+:email: mivimur@hotmail.com
+:revnumber: v1.0
+:revdate: 11 Octubre 2017
+:version-label!:
+:toc: left
+:toclevels: 3
+:sectnums:
+:chapter-label:
+:icons: font
+:source-highlighter: coderay
+:pygments-linenums-mode: inline
+:experimental:
+:doctype: book
+:imagesdir: resources/images
+
+
+image:https://travis-ci.org/mvillafuertem/macos-initializer.svg?branch=master["Build Status", link="https://travis-ci.org/mvillafuertem/macos-initializer"]
+
+https://mvillafuertem.github.io/macos-initializer/index.html
+
+https://mvillafuertem.github.io/macos-initializer/macos-initializer.pdf
