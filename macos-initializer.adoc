@@ -31,12 +31,18 @@ https://brew.sh/index_es.html[Descargar]
 [source, bash, numbered]
 ----
 
+brew update
+brew upgrade
+brew tap
+brew cask install java8
 brew install maven
 brew install gradle
+brew install nmap
 brew cask install atom
 brew cask install google-chrome
 brew cask install intellij-idea-ce
-brew cask install java8
+brew cask install virtualbox
+#Descarga la última versión de java
 brew cask install java
 
 ----
@@ -151,6 +157,29 @@ alias of='open .'
 alias oi='idea .'
 alias projects='cd ~/Projects'
 alias workspace='cd ~/Workspace'
+alias ppwd='cd `pbpaste`'
+# Gradle
+alias gdl-cb='./gradlew clean build'
+alias gdl-tc='./gradlew test --continuous'
+alias gdl-tj='./gradlew test jacocoTR --continuous'
+# Maven
+alias mvn-cc='mvn clean compile'
+alias mvn-ci='mvn clean install'
+alias mvn-cis='mvn clean install -Dmaven.test.skip'
+alias mvn-co='mvn clean test cobertura:cobertura'
+alias mvn-ct='mvn clean test'
+alias mvn-cto='mvn -o clean test'
+alias mvn-da='mvn dependency:analyze'
+alias mvn-dl='mvn dependency:list'
+alias mvn-dt='mvn dependency:tree'
+alias mvn-du='mvn versions:display-dependency-updates'
+alias mvn-pu='mvn versions:display-plugin-updates'
+alias mvn-sr='mvn surefire-report:report'
+alias mvn-so='mvn sonar:sonar'
+# VirtualBox
+alias vbox-start='VBoxManage startvm ubuntu -type headless'
+alias vbox-stop='VBoxManage controlvm ubuntu poweroff'
+alias vbox-list='VBoxManage list vms'
 
 ----
 
@@ -204,6 +233,10 @@ PS1+='\n\[\033[0;32m\]└─>\[\033[0m\]'
 
 ----
 
+=== Resultado
+
+image::ScreenShot-Terminal.png[]
+
 == Atom
 
 [source, bash, numbered]
@@ -226,3 +259,60 @@ sudo gem install pygments.rb
 sudo gem install coderay
 
 ----
+
+== iTerm 2
+
+[source, bash, numbered]
+----
+
+brew cask install iTerm2
+
+----
+
+
+=== oh-my-zsh
+
+[source, bash, numbered]
+----
+
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+----
+
+
+=== Solarized Theme
+
+
+[source, bash, numbered]
+----
+
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+
+vi .zshrc
+# añadir las siguientes lineas
+ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+
+----
+
+=== Fonts
+
+[source, bash, numbered]
+----
+
+# Debes instalar estas fuentes, para evitar errores en los caracteres
+git clone https://github.com/powerline/fonts.git --depth=1
+# install
+cd fonts
+./install.sh
+# clean-up a bit
+cd ..
+rm -rf fonts
+
+----
+
+Preferences > Profiles > Text > Change Font > Meslo LG for Powerline
+
+=== Resultado
+
+image::ScreenShot-iTerm.png[]
