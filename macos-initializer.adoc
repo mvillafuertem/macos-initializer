@@ -158,6 +158,7 @@ alias oa='atom .'
 alias of='open .'
 alias oi='idea .'
 alias projects='cd ~/Projects'
+alias newproject='mkdir -p src/{main,test}/{java,resources} src/main/java/com/mvillafuertem'
 alias workspace='cd ~/Workspace'
 alias ppwd='cd `pbpaste`'
 # Gradle
