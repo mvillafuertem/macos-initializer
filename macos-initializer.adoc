@@ -2,7 +2,7 @@
 :author: Miguel Villafuerte
 :email: mivimur@hotmail.com
 :revnumber: v1.0
-:revdate: 11 Octubre 2017
+:revdate: {localdate}
 :version-label!:
 :toc: left
 :toclevels: 3
@@ -122,7 +122,7 @@ git config --global color.ui "auto"
 .git format
 ----
 
-git config --global format.pretty "'%C(cyan)%h%C(reset) %C(white)%s%C(reset) %C(auto)%D%C(reset) %C(magenta dim)%an%C(reset) %C(dim blue)%ar%C(reset)'"
+git config --global format.pretty "'%C(045)%h%C(reset) %C(255)%s%C(reset) %C(auto)%D%C(reset) %C(190 dim)%an%C(reset) %C(046 dim)%ar%C(reset)'"
 
 ----
 
