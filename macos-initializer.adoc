@@ -13,7 +13,10 @@
 :pygments-linenums-mode: inline
 :experimental:
 :doctype: book
-:imagesdir: resources/images
+:imagesdir: resources/images/
+:stylesdir: resources/stylesheets/
+:stylesheet: villafuerte.css
+:linkcss:
 
 == Home Directory
 
