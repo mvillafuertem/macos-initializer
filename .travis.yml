@@ -6,6 +6,8 @@ services:
 before_install:
   - mkdir -p output
   - docker pull asciidoctor/docker-asciidoctor
+  - ls -la
+  - pwd
 
 script:
   - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-to-html asciidoctor/docker-asciidoctor asciidoctor -a linkcss -a stylesheet=villafuerte.css -a stylesdir=resources/stylesheets -D /documents/output macos-initializer.adoc
@@ -20,7 +22,10 @@ after_failure:
   - docker logs asciidoc-to-pdf
 
 after_success:
+  - ls -la
+  - pwd
   - cd output ; mv macos-initializer.html index.html ; cp -R ../resources resources
+  - ls -la
   - git init
   - git config user.name "${GH_USER_NAME}"
   - git config user.email "{GH_USER_EMAIL}"
