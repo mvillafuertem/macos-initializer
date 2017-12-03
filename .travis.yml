@@ -30,6 +30,9 @@ after_success:
   - cd resources
   - ls -la
   - cd ..
+  - ls -la
+  - cd resources
+  - ls -la
   - git init
   - git config user.name "${GH_USER_NAME}"
   - git config user.email "{GH_USER_EMAIL}"
