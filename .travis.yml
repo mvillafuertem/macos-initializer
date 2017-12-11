@@ -2,7 +2,7 @@ services:
   - docker
 
 before_install:
-  - mkdir -p output
+  - mkdir output
   - cp resources/stylesheets/villafuerte.css villafuerte.css
   - ls -la
   - docker pull asciidoctor/docker-asciidoctor
