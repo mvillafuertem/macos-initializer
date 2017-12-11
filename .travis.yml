@@ -1,8 +1,10 @@
+sudo: required
+
 services:
   - docker
 
 before_install:
-  - mkdir output
+  - mkdir -p output
   - cp resources/stylesheets/villafuerte.css villafuerte.css
   - ls -la
   - docker pull asciidoctor/docker-asciidoctor
@@ -22,7 +24,7 @@ after_failure:
 after_success:
   - ls -la
   - pwd
-  - cd output ; mv macos-initializer.html index.html ; cp -R ../resources resources
+  - cd output ; mv macos-initializer.html index.html ; chmod 775 resources;  cp -R ../resources/ resources/
   - ls -la
   - pwd
   - cd resources
