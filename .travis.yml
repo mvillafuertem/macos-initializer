@@ -1,5 +1,3 @@
-sudo: required
-
 services:
   - docker
 
@@ -24,7 +22,7 @@ after_failure:
 after_success:
   - ls -la
   - pwd
-  - cd output ; mv macos-initializer.html index.html ; cp ../resources resources
+  - cd output ; mv macos-initializer.html index.html ; cp -R ../resources resources
   - ls -la
   - pwd
   - cd resources
