@@ -24,15 +24,12 @@ after_failure:
 after_success:
   - ls -la
   - pwd
-  - cd output ; mv macos-initializer.html index.html ; chmod 775 resources;  cp -R ../resources/ resources/
+  - cd output ; mv macos-initializer.html index.html ; 
   - ls -la
   - pwd
-  - cd resources
+  - cd resources ; cp -R ../../resources/images images/ 
   - ls -la
   - cd ..
-  - ls -la
-  - cd resources
-  - ls -la
   - git init
   - git config user.name "${GH_USER_NAME}"
   - git config user.email "{GH_USER_EMAIL}"
