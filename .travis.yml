@@ -27,7 +27,7 @@ after_success:
   - cd output ; mv macos-initializer.html index.html ; 
   - ls -la
   - pwd
-  - cd resources ; cp -R ../../resources/images images/ 
+  - chmod 775 resources; cd resources ; cp -R ../../resources/images images/ 
   - ls -la
   - cd ..
   - git init
