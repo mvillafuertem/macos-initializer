@@ -4,9 +4,7 @@ services:
   - docker
 
 before_install:
-  - mkdir -p output
-  - cp resources/stylesheets/villafuerte.css villafuerte.css
-  - ls -la
+  - mkdir -p output; cp -R resources/ output/resources/
   - docker pull asciidoctor/docker-asciidoctor
 
 script:
@@ -22,14 +20,7 @@ after_failure:
   - docker logs asciidoc-to-pdf
 
 after_success:
-  - ls -la
-  - pwd
-  - cd output ; mv macos-initializer.html index.html ; 
-  - ls -la
-  - pwd
-  - chmod 775 resources; cd resources ; cp -R ../../resources/images images/ 
-  - ls -la
-  - cd ..
+  - cd output ; mv macos-initializer.html index.html ; cp -R ../resources/ resources/
   - git init
   - git config user.name "${GH_USER_NAME}"
   - git config user.email "{GH_USER_EMAIL}"
