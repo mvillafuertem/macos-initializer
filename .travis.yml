@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - mkdir -p output; cp -R resources/ output/resources/
+  - mkdir -p output/resources
   - docker pull asciidoctor/docker-asciidoctor
 
 script:
