@@ -8,8 +8,8 @@ before_install:
   - docker pull asciidoctor/docker-asciidoctor
 
 script:
-  - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-to-html asciidoctor/docker-asciidoctor asciidoctor -a linkcss -a stylesheet=villafuerte.css -a stylesdir=resources/stylesheets -D /documents/output macos-initializer.adoc
-  - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-to-pdf asciidoctor/docker-asciidoctor asciidoctor-pdf -a pdf-style=resources/themes/villafuerte.yml -a pdf-fontsdir=resources/fonts -D /documents/output macos-initializer.adoc
+  - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-to-html asciidoctor/docker-asciidoctor asciidoctor -a linkcss -a stylesheet=villafuerte.css -a stylesdir=resources/stylesheets -a localdate=$(date '+%d %B %Y') -D /documents/output macos-initializer.adoc
+  - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-to-pdf asciidoctor/docker-asciidoctor asciidoctor-pdf -a pdf-style=resources/themes/villafuerte.yml -a pdf-fontsdir=resources/fonts -a localdate=$(date '+%d %B %Y') -D /documents/output macos-initializer.adoc
 
 after_error:
   - docker logs asciidoc-to-html
