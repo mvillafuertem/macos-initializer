@@ -125,7 +125,7 @@ git config --global color.ui "auto"
 .git format
 ----
 
-git config --global format.pretty "'%C(045)%h%C(reset) %C(255)%s%C(reset) %C(auto)%D%C(reset) %C(190 dim)%an%C(reset) %C(046 dim)%ar%C(reset)'"
+git config --global format.pretty "%C(045)%h%C(reset) %C(255)%s%C(reset) %C(auto)%D%C(reset) %C(190 dim)%an%C(reset) %C(046 dim)%ar%C(reset) %+b"
 
 ----
 
