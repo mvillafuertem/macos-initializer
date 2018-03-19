@@ -52,6 +52,17 @@ brew cask install java
 == Git
 
 [source, bash, numbered]
+.git config
+----
+
+git config --global pull.ff only # Disallows non ff merges on pull. Overrides merge.ff when pulling
+git config --global merge.ff false # even create extra merge commit when fast forward merge would be possible
+git config --global pull.rebase true # set up pull to rebase instead of merge
+
+----
+
+
+[source, bash, numbered]
 .git aliases
 ----
 
@@ -82,6 +93,7 @@ git config --global alias.st "status"
 git config --global alias.tree "log --all --graph --decorate --oneline --simplify-by-decoration"
 
 ----
+
 
 [source, bash, numbered]
 .git color
@@ -138,6 +150,7 @@ git config --global user.email "mivimur@hotmail.com"
 git config --global user.name "Miguel Villafuerte"
 
 ----
+
 
 [source, bash, numbered]
 .git ignore
