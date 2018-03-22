@@ -66,6 +66,7 @@ git config --global pull.rebase true # set up pull to rebase instead of merge
 .git aliases
 ----
 
+git config --global alias.alias "!git config -l | grep alias | cut -c 7-"
 git config --global alias.br "branch -a -v"
 git config --global alias.ca "commit --amend"
 git config --global alias.ci "commit -m"
@@ -80,6 +81,7 @@ git config --global alias.ll "log --graph --all"
 git config --global alias.lld "log --graph --all --date-order"
 git config --global alias.llp "log --graph --all -p"
 git config --global alias.lls "log --graph --all --stat"
+git config --global alias.llive "!f() { while :; do clear; git ll -$1; sleep 1; done }; f"
 git config --global alias.ph "push"
 git config --global alias.pl "pull --rebase"
 git config --global alias.ppl "!git remote update --prune && git pull --rebase"
