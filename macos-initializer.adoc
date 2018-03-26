@@ -1,19 +1,5 @@
 = MacOS Initializer
-:author: Miguel Villafuerte
-:email: mivimur@hotmail.com
-:revnumber: v1.0
-:revdate: {localdate}
-:version-label!:
-:toc: left
-:toclevels: 3
-:sectnums:
-:chapter-label:
-:icons: font
-:source-highlighter: coderay
-:pygments-linenums-mode: inline
-:experimental:
-:doctype: book
-:imagesdir: resources/images/
+include::attributes.adoc[]
 
 == Home Directory
 
@@ -167,19 +153,19 @@ git config --global core.excludesFile ~/.gitignore
 .git message
 ----
 
-# feature( ) :  
+# feature( ) :
 #       - new feature for the user, not a new feature for build script.
-# fix( ) :              
+# fix( ) :
 #       - bug fix for the user, not a fix to a build script.
-# docs( ) :             
+# docs( ) :
 #       - changes to the documentation.
-# style( ) :    
+# style( ) :
 #       - formatting, missing semi colons, etc; no production code change.
-# refactor( ) : 
+# refactor( ) :
 #       - refactoring production code, eg. renaming a variable.
-# test( ) :             
+# test( ) :
 #       - adding missing tests, refactoring tests; no production code change
-# chore( ) :    
+# chore( ) :
 #       - updating grunt tasks etc; no production code change.
 
 # Jira: #
