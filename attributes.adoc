@@ -3,6 +3,9 @@
 :email: mivimur@hotmail.com
 :revnumber: v1.0
 :revdate: {localdate}
+:title-logo-image: image:logo.png[]
+:allow-uri-read:
+:lang: es
 :chapter-label:
 :doctype: book
 :experimental:
@@ -12,24 +15,35 @@
 :toc: left
 :toclevels: 3
 :version-label!:
-:page-tags: [release, MacOS]
+:page-tags: [release, mac]
 :compat-mode!:
 :numbered:
 :autofit:
 :specialnumbered!:
-:back-cover-image: image:git.png[]
+//:back-cover-image: image:git.png[]
 // code style
 :source-highlighter: coderay
-:source-highlighter: pygments
+//:source-highlighter: pygments
 :pygments-linenums-mode: inline
 // path
-:imagesdir: resources/images/
+:imagesdir: resources/images
 :includedir: _includes
+:uml: resources/plantuml
 :idprefix: id_
 :example-caption!:
+// HTML
+ifdef::backend-html5[]
+:stylesdir: resources/style
+:stylesheet: villafuerte.css
+:linkcss:
+endif::[]
+// PDF
 ifdef::backend-pdf[]
 :pagenums:
 :tabsize: 4
-:pygments-style: bw
-:source-highlighter: pygments
+//:pygments-style: perldoc
+//:source-highlighter: pygments
+:pdf-style: resources/themes/villafuerte.yml
+:pdf-fontsdir: resources/fonts
+:imagesoutdir: resources/images
 endif::[]
