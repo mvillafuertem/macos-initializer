@@ -1,4 +1,4 @@
-= MacOS Initializer
+= MacOS : Initializer
 include::attributes.adoc[]
 
 == Home Directory
