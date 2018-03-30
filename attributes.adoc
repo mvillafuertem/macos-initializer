@@ -30,10 +30,8 @@
 // UML
 :uml: resources/plantuml/
 // Source
-:source-highlighter: highlightjs
+:source-highlighter: pygments
 :numbered:
-//:source-highlighter: pygments
-:pygments-linenums-mode: inline
 // Includes
 :includedir: _includes
 // HTML
@@ -47,8 +45,8 @@ ifdef::backend-pdf[]
 :pagenums:
 :tabsize: 4
 :source-highlighter: pygments
-:pygments-style: manni
-:pygments-linenums-mode: inline
+//:pygments-style: manni
+//:pygments-linenums-mode: inline
 :pdf-style: resources/themes/villafuerte.yml
 :pdf-fontsdir: resources/fonts
 :imagesoutdir: resources/images/
