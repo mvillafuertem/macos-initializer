@@ -1,0 +1,11 @@
+== Asciidoctor
+
+[source, bash, numbered]
+----
+
+sudo gem install --pre asciidoctor-pdf
+sudo gem install asciidoctor
+sudo gem install pygments.rb
+sudo gem install coderay
+
+----

@@ -1,0 +1,24 @@
+== Homebrew
+
+https://brew.sh/index_es.html[Descargar]
+
+[source, bash, numbered]
+----
+
+brew update
+brew upgrade
+brew tap
+brew cask install java8
+brew install maven
+brew install gradle
+brew install bash-completion
+brew install nmap
+brew cask install atom
+brew cask install google-chrome
+brew cask install intellij-idea-ce
+brew cask install virtualbox
+
+#Descarga la última versión de java
+brew cask install java
+
+----

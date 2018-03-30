@@ -1,0 +1,106 @@
+== Terminal
+
+
+[source, bash, numbered]
+.bash_aliases
+----
+
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias desk='cd ~/Desktop'
+alias gitlab='cd ~/Projects/Gitlab'
+alias ll='ls -la'
+alias oa='atom .'
+alias of='open .'
+alias oi='idea .'
+alias projects='cd ~/Projects'
+alias newproject='mkdir -p src/{main,test}/{java,resources} src/main/java/com/mvillafuertem'
+alias workspace='cd ~/Workspace'
+alias ppwd='cd `pbpaste`'
+# Gradle
+alias gdl-cb='./gradlew clean build'
+alias gdl-tc='./gradlew test --continuous'
+alias gdl-tj='./gradlew test jacocoTR --continuous'
+# Maven
+alias mvn-cc='mvn clean compile'
+alias mvn-ci='mvn clean install'
+alias mvn-cis='mvn clean install -Dmaven.test.skip'
+alias mvn-co='mvn clean test cobertura:cobertura'
+alias mvn-ct='mvn clean test'
+alias mvn-cto='mvn -o clean test'
+alias mvn-da='mvn dependency:analyze'
+alias mvn-dl='mvn dependency:list'
+alias mvn-dt='mvn dependency:tree'
+alias mvn-du='mvn versions:display-dependency-updates'
+alias mvn-pu='mvn versions:display-plugin-updates'
+alias mvn-sr='mvn surefire-report:report'
+alias mvn-so='mvn sonar:sonar'
+# VirtualBox
+alias vbox-start='VBoxManage startvm ubuntu -type headless'
+alias vbox-stop='VBoxManage controlvm ubuntu poweroff'
+alias vbox-list='VBoxManage list vms'
+
+----
+
+[source, bash, numbered]
+.bash_functions
+----
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
+newmicro() {
+  `mkdir -p src/{main,test}/{java,resources} src/main/java/com/mvillafuertem/$1/{common,component,configuration,controller,model,repository,service}`
+}
+
+fromhex() {
+    hex=${1#"#"}
+    r=$(printf '0x%0.2s' "$hex")
+    g=$(printf '0x%0.2s' ${hex#??})
+    b=$(printf '0x%0.2s' ${hex#????})
+    printf '%03d' "$(( (r<75?0:(r-35)/40)*6*6 +
+                       (g<75?0:(g-35)/40)*6   +
+                       (b<75?0:(b-35)/40)     + 16 ))"
+}
+
+----
+
+
+
+[source, bash, numbered]
+.bash_profile
+----
+
+source .bash_aliases
+source .bash_functions
+
+export CDPATH=.:~/Projects
+
+function git_villafuerte {
+  local git_compruebo="$(git branch 2>/dev/null)"
+  if [[ ! -z "$git_compruebo" ]]; then
+    local git_status="$(git status 2> /dev/null)"
+    local git_branch="$(git branch 2> /dev/null | grep '^*' | colrm 1 2)"
+
+    if [[ ! $git_status =~ "working tree clean" ]]; then
+      echo -e "\033[3;38;5;124m [✘ $git_branch]"
+    elif [[ $git_status =~ "branch is ahead" ]]; then
+      echo -e "\033[3;38;5;172m [✘ $git_branch]"
+    else
+      echo -e "\033[3;32m [✔︎ $git_branch]"
+    fi
+  fi
+}
+
+PS1='\[\033[0;32m\]\u '
+PS1+='\[\033[0;36m\]\W'
+PS1+='$(git_villafuerte) '
+PS1+='\[\033[0;37m\]$(date "+%d/%b/%Y %H:%M:%S") '
+PS1+='\n\[\033[0;32m\]└─>\[\033[0m\]'
+
+----
+
+=== Resultado
+
+image::ScreenShot-Terminal.png[]

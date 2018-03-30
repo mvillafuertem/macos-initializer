@@ -1,0 +1,10 @@
+== Atom
+
+[source, bash, numbered]
+----
+
+apm install sort-lines
+apm install asciidoc-preview
+apm install language-asciidoc
+
+----

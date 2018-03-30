@@ -1,0 +1,136 @@
+== Git
+
+[source, bash, numbered]
+.git config
+----
+
+git config --global pull.ff only # Disallows non ff merges on pull. Overrides merge.ff when pulling
+git config --global merge.ff false # even create extra merge commit when fast forward merge would be possible
+git config --global pull.rebase true # set up pull to rebase instead of merge
+
+----
+
+
+[source, bash, numbered]
+.git aliases
+----
+
+git config --global alias.alias "!git config -l | grep alias | cut -c 7-"
+git config --global alias.br "branch -a -v"
+git config --global alias.ca "commit --amend"
+git config --global alias.ci "commit -m"
+git config --global alias.ck "checkout"
+git config --global alias.cl "clone"
+git config --global alias.conf "config --global --list"
+git config --global alias.dw "diff --word-diff"
+git config --global alias.dw-1 "diff --word-diff=color HEAD^"
+git config --global alias.dw-2 "diff --word-diff=color HEAD^^"
+git config --global alias.f "fetch"
+git config --global alias.ll "log --graph --all"
+git config --global alias.lld "log --graph --all --date-order"
+git config --global alias.llp "log --graph --all -p"
+git config --global alias.lls "log --graph --all --stat"
+git config --global alias.llive "!f() { while :; do clear; git ll -$1; sleep 1; done }; f"
+git config --global alias.ph "push"
+git config --global alias.pl "pull --rebase"
+git config --global alias.ppl "!git remote update --prune && git pull --rebase"
+git config --global alias.ra "remote add"
+git config --global alias.rev "merge --no-ff --no-commit"
+git config --global alias.rr "remote remove"
+git config --global alias.sl "stash list"
+git config --global alias.slp "stash list --word-diff=color -p"
+git config --global alias.sls "stash list --stat"
+git config --global alias.st "status"
+git config --global alias.tree "log --all --graph --decorate --oneline --simplify-by-decoration"
+
+----
+
+
+[source, bash, numbered]
+.git color
+----
+
+git config --global color.branch "auto"
+git config --global color.branch.current "green"
+git config --global color.branch.local "cyan"
+git config --global color.branch.remote "white"
+git config --global color.decorate.branch "green"
+git config --global color.decorate.head "white"
+git config --global color.decorate.remote "yellow"
+git config --global color.decorate.stash "yellow"
+git config --global color.decorate.tag "yellow"
+git config --global color.diff "auto"
+git config --global color.diff.context "102"
+git config --global color.diff.frag "080"
+git config --global color.diff.func "176"
+git config --global color.diff.meta "016"
+git config --global color.diff.new "157 016"
+git config --global color.diff.old "210 016"
+git config --global color.interactive	"auto"
+git config --global color.interactive.error "normal"
+git config --global color.interactive.header "normal"
+git config --global color.interactive.help "normal"
+git config --global color.interactive.prompt "normal"
+git config --global color.pager "true"
+git config --global color.status "auto"
+git config --global color.status.added "114"
+git config --global color.status.branch "016 068"
+git config --global color.status.changed "210"
+git config --global color.status.header "102"
+git config --global color.status.nobranch	"bold ul blink 209"
+git config --global color.status.untracked "221"
+git config --global color.ui "auto"
+
+----
+
+
+[source, bash, numbered]
+.git format
+----
+
+git config --global format.pretty "%C(045)%h%C(reset) %C(255)%s%C(reset) %C(auto)%D%C(reset) %C(190 dim)%an%C(reset) %C(046 dim)%ar%C(reset) %+b"
+
+----
+
+
+[source, bash, numbered]
+.git user
+----
+
+git config --global user.email "mivimur@hotmail.com"
+git config --global user.name "Miguel Villafuerte"
+
+----
+
+
+[source, bash, numbered]
+.git ignore
+----
+
+git config --global core.excludesFile ~/.gitignore
+
+----
+
+
+[source, bash, numbered]
+.git message
+----
+
+# feature( ) :
+#       - new feature for the user, not a new feature for build script.
+# fix( ) :
+#       - bug fix for the user, not a fix to a build script.
+# docs( ) :
+#       - changes to the documentation.
+# style( ) :
+#       - formatting, missing semi colons, etc; no production code change.
+# refactor( ) :
+#       - refactoring production code, eg. renaming a variable.
+# test( ) :
+#       - adding missing tests, refactoring tests; no production code change
+# chore( ) :
+#       - updating grunt tasks etc; no production code change.
+
+# Jira: #
+
+----

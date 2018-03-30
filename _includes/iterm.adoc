@@ -1,0 +1,55 @@
+== iTerm 2
+
+[source, bash, numbered]
+----
+
+brew cask install iTerm2
+
+----
+
+=== oh-my-zsh
+
+[source, bash, numbered]
+----
+
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+----
+
+
+=== Solarized Theme
+
+
+[source, bash, numbered]
+----
+
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+
+vi .zshrc
+# añadir las siguientes lineas
+ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+
+----
+
+=== Fonts
+
+[source, bash, numbered]
+----
+
+# Debes instalar estas fuentes, para evitar errores en los caracteres
+git clone https://github.com/powerline/fonts.git --depth=1
+# install
+cd fonts
+./install.sh
+# clean-up a bit
+cd ..
+rm -rf fonts
+
+----
+
+Preferences > Profiles > Text > Change Font > Meslo LG for Powerline
+
+=== Resultado
+
+image::ScreenShot-iTerm.png[]

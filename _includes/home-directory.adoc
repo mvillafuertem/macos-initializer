@@ -1,0 +1,8 @@
+== Home Directory
+
+[source, bash, numbered]
+----
+
+sudo ditto -rsrc /Users/mavillafuerte /Volumes/Data/mavillafuerte
+
+----
