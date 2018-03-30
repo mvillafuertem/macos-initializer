@@ -4,33 +4,38 @@
 :revnumber: v1.0
 :revdate: {localdate}
 :title-logo-image: image:logo.png[]
+//:back-cover-image: image:git.png[]
 :allow-uri-read:
 :lang: es
 :chapter-label:
 :doctype: book
 :experimental:
 :icons: font
+:page-tags: [release, mac]
+:autofit:
+:compat-mode!:
+:version-label!:
+:specialnumbered!:
+:example-caption!:
+// Sections
 :sectnums:
-:stem: latexmath
+:idprefix: id_
+// Table of Contents
 :toc: left
 :toclevels: 3
-:version-label!:
-:page-tags: [release, mac]
-:compat-mode!:
+// Math
+:stem: latexmath
+// Images
+:imagesdir: resources/images/
+// UML
+:uml: resources/plantuml/
+// Source
+:source-highlighter: highlightjs
 :numbered:
-:autofit:
-:specialnumbered!:
-//:back-cover-image: image:git.png[]
-// code style
-:source-highlighter: coderay
 //:source-highlighter: pygments
 :pygments-linenums-mode: inline
-// path
-:imagesdir: resources/images
+// Includes
 :includedir: _includes
-:uml: resources/plantuml
-:idprefix: id_
-:example-caption!:
 // HTML
 ifdef::backend-html5[]
 :stylesdir: resources/style
@@ -41,9 +46,10 @@ endif::[]
 ifdef::backend-pdf[]
 :pagenums:
 :tabsize: 4
-//:pygments-style: perldoc
-//:source-highlighter: pygments
+:source-highlighter: pygments
+:pygments-style: manni
+:pygments-linenums-mode: inline
 :pdf-style: resources/themes/villafuerte.yml
 :pdf-fontsdir: resources/fonts
-:imagesoutdir: resources/images
+:imagesoutdir: resources/images/
 endif::[]
