@@ -21,4 +21,6 @@ brew cask install virtualbox
 #Descarga la última versión de java
 brew cask install java
 
+#Font
+brew cask install font-hack
 ----
