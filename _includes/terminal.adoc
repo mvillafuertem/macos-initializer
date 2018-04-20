@@ -17,6 +17,7 @@ alias projects='cd ~/Projects'
 alias newproject='mkdir -p src/{main,test}/{java,resources} src/main/java/com/mvillafuertem'
 alias workspace='cd ~/Workspace'
 alias ppwd='cd `pbpaste`'
+alias hound='grep -Hrn --color $1 $2'
 # Gradle
 alias gdl-cb='./gradlew clean build'
 alias gdl-tc='./gradlew test --continuous'
