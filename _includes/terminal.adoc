@@ -40,6 +40,8 @@ alias mvn-so='mvn sonar:sonar'
 alias vbox-start='VBoxManage startvm ubuntu -type headless'
 alias vbox-stop='VBoxManage controlvm ubuntu poweroff'
 alias vbox-list='VBoxManage list vms'
+# Docker
+alias dkl='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
 
 ----
 
