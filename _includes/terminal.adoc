@@ -36,6 +36,15 @@ alias mvn-du='mvn versions:display-dependency-updates'
 alias mvn-pu='mvn versions:display-plugin-updates'
 alias mvn-sr='mvn surefire-report:report'
 alias mvn-so='mvn sonar:sonar'
+alias mvn-dlfilter='mvn dependency:list -Dsort=true |
+  grep "^\[INFO\]    " |
+  awk '{print $2}' |
+  cut -f1-4 -d: |
+  sort |
+  uniq |
+  cut -f1-3 -d: |
+  uniq -c |
+  grep -v '^ *1 '
 # VirtualBox
 alias vbox-start='VBoxManage startvm ubuntu -type headless'
 alias vbox-stop='VBoxManage controlvm ubuntu poweroff'
