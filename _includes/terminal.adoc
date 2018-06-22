@@ -45,14 +45,7 @@ alias mvn-dlfilter='mvn dependency:list -Dsort=true |
   cut -f1-3 -d: |
   uniq -c |
   grep -v '^ *1 '
-alias mvn2grdlversions='mvn dependency:list -Dsort=true |   
-    grep "^\[INFO\]    " |   
-    awk '{print $2}' |   
-    cut -f2,4 -d: |   
-    sort |   
-    uniq | 
-    awk -F':' '{q="\x27"; print q$1q "|:"q $2 q"," }' | 
-    column -t -s"|"'
+alias mvn2grdlversions="mvn dependency:list -Dsort=true |   grep '^\[INFO\]    ' |   awk '{print \$2}' |   cut -f2,4 -d: |   sort |   uniq | awk -F':' '{q=\"\x27\"; print q\$1 q \"|:\" q\$2q\",\" }' | column -t -s'|'"
 # VirtualBox
 alias vbox-start='VBoxManage startvm ubuntu -type headless'
 alias vbox-stop='VBoxManage controlvm ubuntu poweroff'
