@@ -53,7 +53,15 @@ alias vbox-stop='VBoxManage controlvm ubuntu poweroff'
 alias vbox-list='VBoxManage list vms'
 # Docker
 alias dkl='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
-
+# Kubernetes
+alias kalias="cat ~/.zshrc | grep kubectl"
+alias klogs="kubectl logs -f"
+alias kpod="kubectl describe pod"
+alias kapply="kubectl apply -f"
+alias kdel="kubectl delete pod"
+alias kpods="kubectl get pods"
+alias kwatch="kubectl get pods -w"
+alias kserv="kubectl describe service"
 ----
 
 [source, bash, numbered]
