@@ -114,9 +114,16 @@ git config --global core.excludesFile ~/.gitignore
 
 
 [source, bash, numbered]
-.git message
+.git commit template
 ----
 
+git config --global commit.template ~/.gitmessage
+
+----
+
+[source, bash, numbered]
+.~/.gitmessage
+----
 # feature( ) :
 #       - new feature for the user, not a new feature for build script.
 # fix( ) :
