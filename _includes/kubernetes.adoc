@@ -1,0 +1,27 @@
+Instalación kube-ps1
+
+kube-ps1 es un script que muestra el contexto y el namespace de Kubernetes actualmente configurados en kubectl en el prompt de Bash o Zsh.
+
+prompt
+Instalación para Oh My Zsh:
+
+En el fichero ~/.zshrc hay que añadir kube-ps1 a la lista de plugins cargados:
+plugins=(git kubectl kube-ps1 pyenv)
+
+y añadir esta línea al final del fichero ~/.zshrc: 
+PROMPT='$(kube_ps1)'$PROMPT
+Instalación en Bash o Zsh:
+# GNU/Linux
+cd /opt
+sudo git clone https://github.com/jonmosco/kube-ps1 kube-ps1
+ 
+# OSX
+brew install kube-ps1
+
+En el caso de que el shell sea Bash hay que añadir estas líneas al ~/.bashrc. Adaptar $PS1 al gusto:
+source /opt/kube-ps1/kube-ps1.sh
+PS1='$(kube_ps1)'$PS1
+
+En el caso de que el shell sea Zsh hay que añadir estas líneas al ~/.zshrc. Adaptar la variable $PROMPT al gusto:
+source /opt/kube-ps1/kube-ps1.sh
+PROMPT='$(kube_ps1)'$PROMPT
