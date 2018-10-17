@@ -25,3 +25,58 @@ PS1='$(kube_ps1)'$PS1
 En el caso de que el shell sea Zsh hay que añadir estas líneas al ~/.zshrc. Adaptar la variable $PROMPT al gusto:
 source /opt/kube-ps1/kube-ps1.sh
 PROMPT='$(kube_ps1)'$PROMPT
+
+
+
+
+alias kalias="cat ~/.zshrc | grep kubectl"
+alias klogs="kubectl logs -f"
+alias kpod="kubectl describe pod"
+alias kapply="kubectl apply -f"
+alias kdel="kubectl delete pod"
+alias kpods="kubectl get pods"
+alias kwatch="kubectl get pods -w"
+alias kserv="kubectl describe service"
+ 
+alias kpod_name='kubectl get pods |
+                 awk '\''{print $1 }'\'' |
+                 grep $1'
+ 
+function kport_forwarding_inner() {
+    if [ -z "$2" ]
+    then
+        localPort=8123
+    else
+        localPort=$2
+    fi
+ 
+    kubectl port-forward $(kpod_name) $localPort:8000
+}
+ 
+alias kpod_forwarding='kport_forwarding_inner'
+
+
+
+# Abrir un puerto de un Pod
+
+Por ejemplo, queremos lanzar una petición el microservicio de inbox, para ello tendremos que abrir un puerto del Pod en nuestra máquina para poder acceder, para ello lanzamos el comando:
+kubectl port-forward inbox-85588d9b9c-64kq6 8123:8000
+
+Siendo la respuesta:
+Forwarding from 127.0.0.1:8123 -> 8000
+Forwarding from [::1]:8123 -> 8000
+
+Quedando bloqueada la terminal, para parar de hacer port forwarding hay que mater el proceso (control c).
+
+Con esto estamos exponiendo el puerto 8000 configurado para el microservicio de inbox en el puerto 8123 local, por ej. así podemos lanzar el healthcheck al microservicio:
+$ curl localhost:8123/health
+ 
+{"status":"UP","diskSpace":{"status":"UP","total":128701009920,"free":110072418304,"threshold":10485760},"rabbit":{"status":"UP","version":"3.7.7"},"mongo":{"status":"UP","version":"3.6.5"}}
+
+Exponer puerto del pod para hacer peticiones desde nuestra máquina
+
+kubectl port-forward [POD] 8123:8000
+
+
+# Bash 
+kubectl exec -it {$podName} bash
