@@ -80,3 +80,13 @@ kubectl port-forward [POD] 8123:8000
 
 # Bash 
 kubectl exec -it {$podName} bash
+
+
+  611  kubectl get svc
+  612  kubectl get pod
+  613  kubectl get pod push-7976c4c5f-kz976
+  614  kubectl get pod push-7976c4c5f-kz976 -o yml
+  615  kubectl get pod push-7976c4c5f-kz976 -o yaml
+  616  kubectl get pod push-7976c4c5f-kz976 -o yaml | grep push
+  617  kubectl get configmaps  push-10
+  618  kubectl get configmaps  push-10 -o yaml
