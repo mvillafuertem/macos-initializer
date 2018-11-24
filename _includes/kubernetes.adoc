@@ -1,43 +1,22 @@
-Instalación kube-ps1
+== Instalación kube-ps1
 
-kube-ps1 es un script que muestra el contexto y el namespace de Kubernetes actualmente configurados en kubectl en el prompt de Bash o Zsh.
+===  GNU/Linux
 
-prompt
-Instalación para Oh My Zsh:
 
-En el fichero ~/.zshrc hay que añadir kube-ps1 a la lista de plugins cargados:
-plugins=(git kubectl kube-ps1 pyenv)
+[source, bash, numbered]
+.bashrc
+----
 
-y añadir esta línea al final del fichero ~/.zshrc: 
-PROMPT='$(kube_ps1)'$PROMPT
-Instalación en Bash o Zsh:
-# GNU/Linux
-cd /opt
-sudo git clone https://github.com/jonmosco/kube-ps1 kube-ps1
- 
-# OSX
-brew install kube-ps1
+cd /usr/local/share
 
-En el caso de que el shell sea Bash hay que añadir estas líneas al ~/.bashrc. Adaptar $PS1 al gusto:
-source /opt/kube-ps1/kube-ps1.sh
+sudo git clone https://github.com/jonmosco/kube-ps1
+
+source /usr/local/share
+
 PS1='$(kube_ps1)'$PS1
 
-En el caso de que el shell sea Zsh hay que añadir estas líneas al ~/.zshrc. Adaptar la variable $PROMPT al gusto:
-source /opt/kube-ps1/kube-ps1.sh
-PROMPT='$(kube_ps1)'$PROMPT
 
 
-
-
-alias kalias="cat ~/.zshrc | grep kubectl"
-alias klogs="kubectl logs -f"
-alias kpod="kubectl describe pod"
-alias kapply="kubectl apply -f"
-alias kdel="kubectl delete pod"
-alias kpods="kubectl get pods"
-alias kwatch="kubectl get pods -w"
-alias kserv="kubectl describe service"
- 
 alias kpod_name='kubectl get pods |
                  awk '\''{print $1 }'\'' |
                  grep $1'
@@ -55,9 +34,13 @@ function kport_forwarding_inner() {
  
 alias kpod_forwarding='kport_forwarding_inner'
 
+----
+ 
 
 
-# Abrir un puerto de un Pod
+
+
+=== Abrir un puerto de un Pod
 
 Por ejemplo, queremos lanzar una petición el microservicio de inbox, para ello tendremos que abrir un puerto del Pod en nuestra máquina para poder acceder, para ello lanzamos el comando:
 kubectl port-forward inbox-85588d9b9c-64kq6 8123:8000
@@ -78,15 +61,26 @@ Exponer puerto del pod para hacer peticiones desde nuestra máquina
 kubectl port-forward [POD] 8123:8000
 
 
-# Bash 
+=== Bash 
+
 kubectl exec -it {$podName} bash
 
 
-  611  kubectl get svc
-  612  kubectl get pod
-  613  kubectl get pod push-7976c4c5f-kz976
-  614  kubectl get pod push-7976c4c5f-kz976 -o yml
-  615  kubectl get pod push-7976c4c5f-kz976 -o yaml
-  616  kubectl get pod push-7976c4c5f-kz976 -o yaml | grep push
-  617  kubectl get configmaps  push-10
-  618  kubectl get configmaps  push-10 -o yaml
+[source, bash, numbered]
+.Comandos
+----
+
+kubectl get svc
+kubectl get pod
+kubectl get pod push-7976c4c5f-kz976
+kubectl get pod push-7976c4c5f-kz976 -o yml
+kubectl get pod push-7976c4c5f-kz976 -o yaml
+kubectl get pod push-7976c4c5f-kz976 -o yaml | grep push
+kubectl get configmaps  push-10
+kubectl get configmaps  push-10 -o yaml
+
+----
+
+
+
+
