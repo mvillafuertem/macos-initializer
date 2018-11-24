@@ -19,24 +19,26 @@ alias workspace='cd ~/Workspace'
 alias ppwd='cd `pbpaste`'
 alias hound='grep -Hrn --color $1 $2'
 # Gradle
-alias gdl-cb='./gradlew clean build'
-alias gdl-tc='./gradlew test --continuous'
-alias gdl-tj='./gradlew test jacocoTR --continuous'
+alias kalias="cat ~/.bash_aliases | grep gradlew"
+alias gdlcb='./gradlew clean build'
+alias gdltc='./gradlew test --continuous'
+alias gdltj='./gradlew test jacocoTR --continuous'
 # Maven
-alias mvn-cc='mvn clean compile'
-alias mvn-ci='mvn clean install'
-alias mvn-cis='mvn clean install -Dmaven.test.skip'
-alias mvn-co='mvn clean test cobertura:cobertura'
-alias mvn-ct='mvn clean test'
-alias mvn-cto='mvn -o clean test'
-alias mvn-da='mvn dependency:analyze'
-alias mvn-dl='mvn dependency:list'
-alias mvn-dt='mvn dependency:tree'
-alias mvn-du='mvn versions:display-dependency-updates'
-alias mvn-pu='mvn versions:display-plugin-updates'
-alias mvn-sr='mvn surefire-report:report'
-alias mvn-so='mvn sonar:sonar'
-alias mvn-dlfilter='mvn dependency:list -Dsort=true |
+alias malias="cat ~/.bash_aliases | grep mvn"
+alias mvncc='mvn clean compile'
+alias mvnci='mvn clean install'
+alias mvncis='mvn clean install -Dmaven.test.skip'
+alias mvnco='mvn clean test cobertura:cobertura'
+alias mvnct='mvn clean test'
+alias mvncto='mvn -o clean test'
+alias mvnda='mvn dependency:analyze'
+alias mvndl='mvn dependency:list'
+alias mvndt='mvn dependency:tree'
+alias mvndu='mvn versions:display-dependency-updates'
+alias mvnpu='mvn versions:display-plugin-updates'
+alias mvnsr='mvn surefire-report:report'
+alias mvnso='mvn sonar:sonar'
+alias mvndlfilter='mvn dependency:list -Dsort=true |
   grep "^\[INFO\]    " |
   awk '{print $2}' |
   cut -f1-4 -d: |
@@ -54,7 +56,7 @@ alias vbox-list='VBoxManage list vms'
 # Docker
 alias dkl='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
 # Kubernetes
-alias kalias="cat ~/.zshrc | grep kubectl"
+alias kalias="cat ~/.bash_aliases | grep kubectl"
 alias klogs="kubectl logs -f"
 alias kpod="kubectl describe pod"
 alias kapply="kubectl apply -f"
