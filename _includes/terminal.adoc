@@ -89,9 +89,19 @@ fromhex() {
 ----
 
 
+[source, bash, numbered]
+.bashrc
+----
+
+if [ -f ~/.bash_villafuerte ]; then
+    . ~/.bash_villafuerte
+fi
+
+----
+
 
 [source, bash, numbered]
-.bash_profile
+.bash_villafuerte
 ----
 
 source .bash_aliases
