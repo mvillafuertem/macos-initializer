@@ -5,6 +5,7 @@
 .bash_aliases
 ----
 
+alias v-='vi -' # redirect output to vim
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias desk='cd ~/Desktop'
@@ -67,9 +68,10 @@ alias klogs="kubectl logs -f"
 alias kpod="kubectl describe pod"
 alias kapply="kubectl apply -f"
 alias kdel="kubectl delete pod"
-alias kpods="kubectl get pods"
+alias kpods="kubectl get pods --output=wide"
 alias kwatch="kubectl get pods -w"
 alias kserv="kubectl describe service"
+alias knamespace="kubectl config set-context --current --namespace"
 ----
 
 [source, bash, numbered]
