@@ -146,6 +146,21 @@ PS1+='$(git_villafuerte) '
 PS1+='\[\033[0;37m\]$(date "+%d/%b/%Y %H:%M:%S") '
 PS1+='\n\[\033[0;32m\]└─>\[\033[0m\]'
 
+
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+COLOR_PRIMARY="\033[38;5;24m"
+COLOR_SECONDARY="\033[38;5;52m"
+COLOR_THIRD="\033[38;5;242m"
+COLOR_AUX="\033[38;5;3m"
+COLOR_RESET="\033[0m"
+
+PS1="$COLOR_AUX\u$COLOR_RESET $COLOR_PRIMARY\w$COLOR_RESET"
+PS1+="\n$COLOR_AUX └─>$COLOR_RESET "
+
 ----
 
 === Resultado
