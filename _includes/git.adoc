@@ -44,6 +44,7 @@ git config --global alias.slp "stash list --word-diff=color -p"
 git config --global alias.sls "stash list --stat"
 git config --global alias.st "status"
 git config --global alias.tree "log --all --graph --decorate --oneline --simplify-by-decoration"
+git config --global alias.bcurrent "rev-parse --abbrev-ref HEAD"
 
 ----
 
