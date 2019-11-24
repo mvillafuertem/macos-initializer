@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="author" content="Miguel Villafuerte">
+<title>MacOS : Initializer</title>
+<link rel="stylesheet" href="resources/style/villafuerte.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<h1>MacOS : Initializer</h1>
+<div class="details">
+<span id="author" class="author">Miguel Villafuerte</span><br>
+<span id="email" class="email"><a href="mailto:mivimur@hotmail.com">mivimur@hotmail.com</a></span><br>
+<span id="revnumber"> v1.0,</span>
+<span id="revdate">24 November 2019</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#id_home_directory">1. Home Directory</a></li>
+<li><a href="#id_homebrew">2. Homebrew</a></li>
+<li><a href="#id_java">3. Java</a></li>
+<li><a href="#id_git">4. Git</a></li>
+<li><a href="#id_terminal">5. Terminal</a>
+<ul class="sectlevel2">
+<li><a href="#id_resultado">5.1. Resultado</a></li>
+</ul>
+</li>
+<li><a href="#id_atom">6. Atom</a></li>
+<li><a href="#id_asciidoctor">7. Asciidoctor</a></li>
+<li><a href="#id_iterm_2">8. iTerm 2</a>
+<ul class="sectlevel2">
+<li><a href="#id_oh_my_zsh">8.1. oh-my-zsh</a></li>
+<li><a href="#id_solarized_theme">8.2. Solarized Theme</a></li>
+<li><a href="#id_fonts">8.3. Fonts</a></li>
+<li><a href="#id_resultado_2">8.4. Resultado</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="id_home_directory">1. Home Directory</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">sudo ditto -rsrc /Users/mavillafuerte /Volumes/Data/mavillafuerte</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="id_homebrew">2. Homebrew</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://brew.sh/index_es.html">Descargar</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">brew update
+brew upgrade
+brew tap
+brew cask install java8
+brew install maven
+brew install gradle
+brew install bash-completion
+brew install nmap
+brew cask install atom
+brew cask install google-chrome
+brew cask install intellij-idea-ce
+brew cask install virtualbox
+
+#Descarga la última versión de java
+brew cask install java
+
+#Font
+brew cask install font-hack</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -sL install-node.now.sh/lts | sh
+curl --compressed -o- -L https://yarnpkg.com/install.sh | bash</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="id_java">3. Java</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">Java 8</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">wget --no-check-certificate --no-cookies \
+  --header "Cookie: oraclelicense=accept-securebackup-cookie" \
+  --progress=dot:giga \
+  https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.tar.gz
+sudo tar xvf jdk-8u191-linux-x64.tar.gz -C /usr/local/share/
+sudo ln -sf /usr/local/share/jdk1.8.0_191/bin/java /usr/local/bin/java
+java -version</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Java 11</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">wget --no-check-certificate --no-cookies \
+  --header "Cookie: oraclelicense=accept-securebackup-cookie" \
+  --progress=dot:giga \
+  https://download.oracle.com/otn-pub/java/jdk/11.0.1+13/90cf5d8f270a4347a95050320eef3fb7/jdk-11.0.1_linux-x64_bin.tar.gz
+sudo tar xvf jdk-11.0.1_linux-x64_bin.tar.gz -C /usr/local/share/</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Gradle</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">wget --progress=dot:giga \
+  https://services.gradle.org/distributions/gradle-4.2-all.zip
+sudo unzip gradle-4.2-all.zip -d /usr/local/share/
+sudo ln -sf /usr/local/share/gradle-4.2/bin/gradle /usr/local/bin/gradle
+gradle -version
+gradle wrapper --gradle-version 4.2</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Maven</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">wget --progress=dot:giga \
+  http://www-us.apache.org/dist/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
+sudo tar xvf apache-maven-3.6.0-bin.tar.gz -C /usr/local/share/
+sudo ln -sf /usr/local/share/apache-maven-3.6.0/bin/mvn /usr/local/bin/mvn
+mvn -v</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="id_git">4. Git</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">git config</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">git config --global pull.ff only # Disallows non ff merges on pull. Overrides merge.ff when pulling
+git config --global merge.ff false # even create extra merge commit when fast forward merge would be possible
+git config --global pull.rebase true # set up pull to rebase instead of merge</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">git aliases</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">git config --global alias.alias "!git config -l | grep alias | cut -c 7-"
+git config --global alias.br "branch -a -v"
+git config --global alias.ca "commit --amend"
+git config --global alias.cane "commit --amend --no-edit"
+git config --global alias.ci "commit"
+git config --global alias.ck "checkout"
+git config --global alias.cl "clone"
+git config --global alias.conf "config --global --list"
+git config --global alias.dw "diff --word-diff=color"
+git config --global alias.dw-1 "diff --word-diff=color HEAD^"
+git config --global alias.dw-2 "diff --word-diff=color HEAD^^"
+git config --global alias.f "fetch"
+git config --global alias.ll "log --graph"
+git config --global alias.llf "log --graph --first-parent"
+git config --global alias.lld "log --graph --date-order"
+git config --global alias.llp "log --graph -p"
+git config --global alias.lls "log --graph --stat"
+git config --global alias.llive "!f() { while :; do clear; git ll -$1; sleep 1; done }; f"
+git config --global alias.ph "push"
+git config --global alias.pl "pull --rebase"
+git config --global alias.ppl "!git remote update --prune &amp;&amp; git pull --rebase"
+git config --global alias.ra "remote add"
+git config --global alias.rev "merge --no-ff --no-commit"
+git config --global alias.rr "remote remove"
+git config --global alias.sl "stash list"
+git config --global alias.slp "stash list --word-diff=color -p"
+git config --global alias.sls "stash list --stat"
+git config --global alias.st "status"
+git config --global alias.tree "log --all --graph --decorate --oneline --simplify-by-decoration"
+git config --global alias.bcurrent "rev-parse --abbrev-ref HEAD"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">git color</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">git config --global color.branch "auto"
+git config --global color.branch.current "green"
+git config --global color.branch.local "cyan"
+git config --global color.branch.remote "white"
+git config --global color.decorate.branch "green"
+git config --global color.decorate.head "white"
+git config --global color.decorate.remote "yellow"
+git config --global color.decorate.stash "yellow"
+git config --global color.decorate.tag "yellow"
+git config --global color.diff "auto"
+git config --global color.diff.context "102"
+git config --global color.diff.frag "080"
+git config --global color.diff.func "176"
+git config --global color.diff.meta "016"
+git config --global color.diff.new "157 016"
+git config --global color.diff.old "210 016"
+git config --global color.interactive	"auto"
+git config --global color.interactive.error "normal"
+git config --global color.interactive.header "normal"
+git config --global color.interactive.help "normal"
+git config --global color.interactive.prompt "normal"
+git config --global color.pager "true"
+git config --global color.status "auto"
+git config --global color.status.added "114"
+git config --global color.status.branch "016 068"
+git config --global color.status.changed "210"
+git config --global color.status.header "102"
+git config --global color.status.nobranch	"bold ul blink 209"
+git config --global color.status.untracked "221"
+git config --global color.ui "auto"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">git format</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">git config --global format.pretty "%C(045)%h%C(reset) %C(255)%s%C(reset) %C(auto)%D%C(reset) %C(190 dim)%an%C(reset) %C(046 dim)%ar%C(reset) %+b"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">git user</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">git config --global user.email "mivimur@hotmail.com"
+git config --global user.name "Miguel Villafuerte"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">git ignore</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">git config --global core.excludesFile ~/.gitignore</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">~/.gitignore</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">### Maven ###
+target/
+
+### Gradle ###
+.gradle
+gradlew.bat
+!gradle/wrapper/gradle-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">git commit template</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">git config --global commit.template ~/.gitmessage</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">~/.gitmessage</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"># feature( ) :
+#       - new feature for the user, not a new feature for build script.
+# fix( ) :
+#       - bug fix for the user, not a fix to a build script.
+# docs( ) :
+#       - changes to the documentation.
+# style( ) :
+#       - formatting, missing semi colons, etc; no production code change.
+# refactor( ) :
+#       - refactoring production code, eg. renaming a variable.
+# test( ) :
+#       - adding missing tests, refactoring tests; no production code change
+# chore( ) :
+#       - updating grunt tasks etc; no production code change.
+
+# Jira: #</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="id_terminal">5. Terminal</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">bash_aliases</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">alias v-='vi -' # redirect output to vim
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias desk='cd ~/Desktop'
+alias gitlab='cd ~/Projects/Gitlab'
+alias ll='ls -la'
+alias oa='atom .'
+alias of='open .'
+alias oi='idea .'
+alias projects='cd ~/Projects'
+alias newproject='mkdir -p src/{main,test}/{java,resources} src/main/java/com/mvillafuertem'
+alias workspace='cd ~/Workspace'
+alias ppwd='cd `pbpaste`'
+alias hound='grep -Hrn --color $1 $2'
+
+### Gradle ###
+alias kalias="cat ~/.bash_aliases | grep gradlew"
+alias gdlcb='./gradlew clean build'
+alias gdltc='./gradlew test --continuous'
+alias gdltj='./gradlew test jacocoTR --continuous'
+
+### Maven ###
+alias malias="cat ~/.bash_aliases | grep mvn"
+alias mvncc='mvn clean compile'
+alias mvnci='mvn clean install'
+alias mvncis='mvn clean install -Dmaven.test.skip'
+alias mvnco='mvn clean test cobertura:cobertura'
+alias mvnct='mvn clean test'
+alias mvncto='mvn -o clean test'
+alias mvnda='mvn dependency:analyze'
+alias mvndl='mvn dependency:list'
+alias mvndt='mvn dependency:tree'
+alias mvndu='mvn versions:display-dependency-updates'
+alias mvnpu='mvn versions:display-plugin-updates'
+alias mvnsr='mvn surefire-report:report'
+alias mvnso='mvn sonar:sonar'
+alias mvndlfilter='mvn dependency:list -Dsort=true |
+  grep "^\[INFO\]    " |
+  awk '{print $2}' |
+  cut -f1-4 -d: |
+  sort |
+  uniq |
+  cut -f1-3 -d: |
+  uniq -c |
+  grep -v '^ *1 '
+alias mvn2grdlversions="mvn dependency:list -Dsort=true |   grep '^\[INFO\]    ' |   awk '{print \$2}' |   cut -f2,4 -d: |   sort |   uniq | awk -F':' '{q=\"\x27\"; print q\$1 q \"|:\" q\$2q\",\" }' | column -t -s'|'"
+alias mvn2grdllibs="mvn dependency:list -Dsort=true |   grep '^\[INFO\]    ' |   awk '{print \$2}' | column -t -s: | awk '{q=\"\x27\";print q\$2q \"|:\"q\$1 \":\" \$2 \":\$versions.\"\$2q\",\"}' | sort | uniq|  column -t -s'|'"
+
+### VirtualBox ###
+alias vbox-start='VBoxManage startvm ubuntu -type headless'
+alias vbox-stop='VBoxManage controlvm ubuntu poweroff'
+alias vbox-list='VBoxManage list vms'
+
+### Docker ###
+alias kalias="cat ~/.bash_aliases | docker"
+alias dkl='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
+
+### Kubernetes ###
+alias kalias="cat ~/.bash_aliases | grep kubectl"
+alias klogs="kubectl logs -f"
+alias kpod="kubectl describe pod"
+alias kapply="kubectl apply -f"
+alias kdel="kubectl delete pod"
+alias kpods="kubectl get pods --output=wide"
+alias kwatch="kubectl get pods -w"
+alias kserv="kubectl describe service"
+alias knamespace="kubectl config set-context --current --namespace"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">bash_functions</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
+newmicro() {
+  `mkdir -p src/{main,test}/{java,resources} src/main/java/com/mvillafuertem/$1/{common,component,configuration,controller,model,repository,service}`
+}
+
+fromhex() {
+    hex=${1#"#"}
+    r=$(printf '0x%0.2s' "$hex")
+    g=$(printf '0x%0.2s' ${hex#??})
+    b=$(printf '0x%0.2s' ${hex#????})
+    printf '%03d' "$(( (r&lt;75?0:(r-35)/40)*6*6 +
+                       (g&lt;75?0:(g-35)/40)*6   +
+                       (b&lt;75?0:(b-35)/40)     + 16 ))"
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">bashrc</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">if [ -f ~/.bash_villafuerte ]; then
+    . ~/.bash_villafuerte
+fi</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">bash_villafuerte</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">source .bash_aliases
+source .bash_functions
+
+export CDPATH=.:~/Projects
+
+if [ -f /usr/local/share/kube-ps1/kube-ps1.sh ]; then
+    . /usr/local/share/kube-ps1/kube-ps1.sh
+fi
+
+function git_villafuerte {
+  local git_compruebo="$(git branch 2&gt;/dev/null)"
+  if [[ ! -z "$git_compruebo" ]]; then
+    local git_status="$(git status 2&gt; /dev/null)"
+    local git_branch="$(git branch 2&gt; /dev/null | grep '^*' | colrm 1 2)"
+
+    if [[ ! $git_status =~ "working tree clean" ]]; then
+      echo -e "\033[3;38;5;124m [✘ $git_branch]"
+    elif [[ $git_status =~ "branch is ahead" ]]; then
+      echo -e "\033[3;38;5;172m [✘ $git_branch]"
+    else
+      echo -e "\033[3;32m [✔︎ $git_branch]"
+    fi
+  fi
+}
+
+PS1='\[\033[0;32m\]\u '
+PS1+='\[\033[0;36m\]\w'
+PS1+='$(git_villafuerte) '
+#PS1+='$(kube_ps1)'
+PS1+='\[\033[0;37m\]$(date "+%d/%b/%Y %H:%M:%S") '
+PS1+='\n\[\033[0;32m\]└─&gt;\[\033[0m\]'
+
+
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+COLOR_PRIMARY="\033[38;5;24m"
+COLOR_SECONDARY="\033[38;5;52m"
+COLOR_THIRD="\033[38;5;242m"
+COLOR_AUX="\033[38;5;3m"
+COLOR_RESET="\033[0m"
+
+PS1="$COLOR_AUX\u$COLOR_RESET $COLOR_PRIMARY\w$COLOR_RESET"
+PS1+="\n$COLOR_AUX └─&gt;$COLOR_RESET "</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="id_resultado">5.1. Resultado</h3>
+<div class="imageblock">
+<div class="content">
+<img src="resources/images/ScreenShot-Terminal.png" alt="ScreenShot Terminal">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="id_atom">6. Atom</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">apm install sort-lines
+apm install asciidoc-preview
+apm install language-asciidoc</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="id_asciidoctor">7. Asciidoctor</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">sudo gem install --pre asciidoctor-pdf
+sudo gem install asciidoctor
+sudo gem install pygments.rb
+sudo gem install coderay</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="id_iterm_2">8. iTerm 2</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">brew cask install iTerm2</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="id_oh_my_zsh">8.1. oh-my-zsh</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="id_solarized_theme">8.2. Solarized Theme</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+
+vi .zshrc
+# añadir las siguientes lineas
+ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="id_fonts">8.3. Fonts</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"># Debes instalar estas fuentes, para evitar errores en los caracteres
+git clone https://github.com/powerline/fonts.git --depth=1
+# install
+cd fonts
+./install.sh
+# clean-up a bit
+cd ..
+rm -rf fonts</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Preferences &gt; Profiles &gt; Text &gt; Change Font &gt; Meslo LG for Powerline</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="id_resultado_2">8.4. Resultado</h3>
+<div class="imageblock">
+<div class="content">
+<img src="resources/images/ScreenShot-iTerm.png" alt="ScreenShot iTerm">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+ v1.0<br>
+Last updated 2019-11-24 15:49:05 UTC
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>
